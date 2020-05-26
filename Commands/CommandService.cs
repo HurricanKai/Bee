@@ -11,6 +11,14 @@ namespace Bee.Commands
     {
         private readonly ICommandNode _root;
         private readonly ILogger _logger;
+        
+        public CommandService(ILogger<CommandService> logger, Action<ICommandBuilder> setup)
+        {
+            _logger = logger;
+            var rootBuilder = new RootCommandBuilder();
+            setup(rootBuilder);
+            _root = rootBuilder.Build();
+        }
 
         public void Execute(string command)
         {
@@ -88,14 +96,6 @@ namespace Bee.Commands
                     return false;
                 }
             }
-        }
-
-        public CommandService(ILogger<CommandService> logger, Action<ICommandBuilder> setup)
-        {
-            _logger = logger;
-            var rootBuilder = new RootCommandBuilder();
-            setup(rootBuilder);
-            _root = rootBuilder.Build();
         }
     }
 }
