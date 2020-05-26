@@ -43,8 +43,7 @@ namespace Bee.Commands
             public ICommandNode Build()
             {
                 // in the end we loose type safety, it's only used for building (this is so we can also support the TypelessArgumentCommandBuilder.
-                return new ArgumentCommandNode<TParser1, TArgument1, TParserProperties1>(_parser, _name, _children,
-                    _properties, _delegate, null);
+                return new ArgumentCommandNode<TParser1, TArgument1, TParserProperties1>(_parser, _name, _children, _properties, _delegate, null);
             }
 
             public ICommandBuilder<TParser1, TArgument1, TParserProperties1, TParser2, TArgument2, TParserProperties2,

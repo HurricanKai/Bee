@@ -17,7 +17,7 @@ namespace Bee
                         .WithLiteral("echo", builder => builder
                             .WithIntArgument("number", new IntParserProperties(0), builder => builder
                                 .WithLiteral("literal", builder => builder
-                                    .Run(i => logger.LogInformation($"Ran echo {i} literal", i))))));
+                                    .Run(i => logger.LogInformation("Ran echo {i} literal", i))))));
             });
     }
 }

@@ -78,7 +78,7 @@ namespace Bee
                 {
                     break;
                 }
-                _logger.LogInformation($"User Input: {input}");
+                _logger.LogInformation("User Input: {input}", input);
                 _commandService.Execute(input);
             }
             
